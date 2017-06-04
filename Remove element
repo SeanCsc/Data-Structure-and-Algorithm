@@ -1,0 +1,20 @@
+
+＃同样是两个指针，一个遍历，一个维护新序列。
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        sort(nums.begin(),nums.end());
+        int len = nums.size();
+        int j = 0;
+        if(len == 0) return 0;
+        for(int i = 0; i < len; i++){
+            if(nums[i] != val){
+                nums[j++] = nums[i];
+            }
+            else{
+                continue;
+            }
+        }
+        return j;
+    }
+};
