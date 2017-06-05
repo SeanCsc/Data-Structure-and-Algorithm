@@ -1,0 +1,25 @@
+//可以用 hashTable 或者头尾指针（sorted）
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int len = nums.size();
+        map<int,int> hashTable;
+        vector<int> results;
+        for(int i = 0 ; i<len; i++){
+            if(hashTable.count(target-nums[i])){
+                int n = hashTable[target-nums[i]];
+                results.push_back(n);
+                results.push_back(i);
+                break;
+            }
+            if(hashTable.count(nums[i])==0){
+                hashTable.insert(pair<int,int>(nums[i],i));
+            }
+            
+        }
+        return results;
+    }
+};
+
+
