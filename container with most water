@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int mini(int &a, int &b){
+        if (a<b) return a;
+        else return b;
+    }
+    int square(int &a, int &b, int height){
+        return (b-a)*height;
+    }
+    int maxArea(vector<int>& height) {
+        int num = height.size();
+        int i = 0;
+        int j = num-1;
+        int max= 0;
+        while(i<j){
+            int sq = square(i,j,mini(height[i],height[j]));
+            if(sq>max) max = sq;
+            if(height[i]<height[j]) i++;
+            else j--;
+        }
+        return max;
+    }
+};
