@@ -1,0 +1,29 @@
+选择，限制，结束
+关键点在于如何表示sub answer，如何写限制条件（左括号和右括号的数量来表示，左右括号数量比较，左右括号是否还大于0）
+class Solution {
+public:
+    vector<string> res;
+    char path[1000];
+    vector<string> generateParenthesis(int n) {
+        res.clear();
+        int max = 2*n;
+        helper("",n,n);
+        return res;
+    }
+    
+    void helper( string tmp, int left , int right){
+        if(left == 0 && right == 0){
+            res.push_back(tmp);
+            return;
+        }
+       if(left>right){
+            return;
+       }
+       if(left>0){
+           helper(tmp+'(',left-1,right);
+       }
+       if(right>0){
+           helper(tmp+')',left,right-1);
+       }
+    }
+};
