@@ -1,0 +1,40 @@
+关键点在于，首先，某个位置的元素是没被用过的。
+该题在1的基础上继续延伸，出现了重复元素，这时为了去重，就要再加一条自定义顺序，也就是在前后相同的时候，我们如果前一个没有用的话后面的也不能用
+这样可以避免用前不用后，用后不用前的重复。
+
+class Solution {
+public:
+    vector<vector<int>> res;
+    int path[100]; //记录index
+    bool v[100];
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        res.clear();
+        sort(nums.begin(),nums.end());
+        int len  = nums.size();
+        helper(0,len,nums);
+        return res;
+        
+    }
+    
+    void helper(int idx, int max, vector<int>& nums){
+        if(idx == max){
+            vector<int> tmp;
+            for(int i = 0;i<max;i++){
+                tmp.push_back(nums[path[i]]);
+            }
+            res.push_back(tmp);
+            return;
+        }
+        for(int i = 0; i<max; i++){
+            if(i>0 && nums[i] == nums[i-1] && v[i-1]== false){
+                continue;
+            }
+            else if(v[i] == false){
+                path[idx] = i;
+                v[i] = true;
+                helper(idx+1,max,nums);
+                v[i] = false;
+            }
+        }
+    }
+};
