@@ -1,0 +1,39 @@
+哪一小类？有什么共同点？切入点在哪？要注意的问题
+  链表的两类组合问题
+  某种类型的放在一起（比如奇偶，比如大小）
+  切入点在于dummynode,双指针各自连起来各自的链表，然后一类的头接到另一类的屁股上
+  注意别陷入死循环。
+  
+  /**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* partition(ListNode* head, int x) {
+        ListNode* dummybig = new ListNode(0);
+        ListNode* bigtail = dummybig;
+        ListNode* dummysmall = new ListNode(0);
+        ListNode* smalltail = dummysmall;
+        while(head != NULL){
+            if(head->val < x) {
+                smalltail->next = head;
+                smalltail = head;
+            }
+            else{
+                bigtail->next = head;
+                bigtail = head;
+            }
+            head = head->next;
+        }
+        smalltail->next = dummybig->next;
+        bigtail->next = NULL;
+        return dummysmall->next;
+        
+    }
+
+};
