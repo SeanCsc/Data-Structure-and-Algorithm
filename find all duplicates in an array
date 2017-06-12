@@ -1,0 +1,18 @@
+要求no extra space + O(n) ＝ 在原数组上操作，并且遍历一遍或多遍
+利用好给的信息  1<=a[i]<=n 
+在该数组上定义一个映射关系，比如取负。下次再次碰到的时候就可以知道是之前遍历过的。但是要注意abs的使用，防止re.
+hash的思想
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& nums) {
+        vector<int> res;
+        int len = nums.size();
+        if(len == 0) return res;
+        for(int i = 0; i < len; i++){
+            int index = abs(nums[i])-1;
+            if(nums[index] > 0)  nums[index] = -nums[index] ;
+            else res.push_back(index+1);
+        }
+        return res;
+    }
+};
