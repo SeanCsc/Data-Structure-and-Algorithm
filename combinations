@@ -1,0 +1,34 @@
+1:
+1-n的组合。
+组合就要意识到如何去除重复。dfs的去除重复方式一般有两种，一种是用flag标记是否取过，另一种是自定义顺序（这种在对于有序排序的集合中较为好用，比如1-n
+比如多个相同的数这种）
+本题每次从index＋1开始，就可以保证结果里面的sub vector是递增的.
+class Solution {
+public:
+    vector<vector<int>> combine(int n, int k) {
+    res.clear();
+    K = k;
+    helper(0, n ,k);
+    return res;
+    }
+    void helper(int idx, int n, int k){ //idx means the actual number instead of the index
+        if(k==0){
+            vector<int> tmp;
+            for(int i = 0; i<K; i++){
+                tmp.push_back(path[i]);
+            }
+            res.push_back(tmp);
+            return;
+        }
+        for(int i = idx + 1; i<=n; i++){
+            path[k-1] = i;
+            helper(i, n, k-1);
+        }
+        
+        
+    }
+    
+    vector<vector<int>> res;
+    int path[100];
+    int K;
+};
