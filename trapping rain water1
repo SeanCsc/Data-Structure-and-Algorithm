@@ -1,0 +1,31 @@
+两边奠定基调，从小的开始移动，定义一个secHeight作为较大的那个，可以对于每次其与两边大者之间生成一个装水凹槽。
+
+
+
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int len = height.size();
+        int l = 0;
+        int r = len-1;
+        int secHeight = 0;
+        int sum = 0;
+        while(l<r){
+            if(height[l]<height[r]){
+                secHeight = bigger(height[l], secHeight);
+                sum = sum + (secHeight - height[l]);
+                l++;
+            }
+            else{
+                secHeight = bigger(height[r], secHeight);
+                sum = sum + (secHeight - height[r]);
+                r--;
+            }
+        }
+        return sum;
+    }
+    int bigger (int a, int b){
+        if(a<b) return b;
+        else return a ;
+    }
+};
