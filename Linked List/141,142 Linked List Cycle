@@ -1,0 +1,61 @@
+给一个链表，判断是否有环以及环在何处。
+1.用set储存地址，如果又出现则出现环。但是这需要额外的内存空间，且每次搜索费时间。
+2.使用快慢指针。针对环的问题／错位问题（找到倒数第几个节点），都可以尝试用快慢指针。
+快慢指针的好处是不需要开辟新的空间，在数组的删除，重组中，也可以用一个指针来遍历，一个指针作为新数组的坐标。
+
+141.
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode* p1 = head;
+        ListNode* p2 = head;
+        if(head == NULL) return false;
+        while(p2->next!= NULL && p2->next->next!= NULL){
+            p2 = p2->next->next;
+            p1 = p1->next;
+            if(p1 == p2) return true;
+        }
+        return false;
+    }
+};
+
+
+142.
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode* p1 = head;
+        ListNode* p2 = head;
+        if(head == NULL) return NULL;
+        while(p2->next!= NULL && p2->next->next != NULL){
+            p2 = p2->next->next;
+            p1 = p1->next;
+            if(p1 == p2){
+                p1 = head;
+                while(p1!=p2){
+                p1 = p1->next;
+                p2 = p2->next;
+                }
+               return p1;
+            }
+         
+        }
+        return NULL;
+    }
+};
