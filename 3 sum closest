@@ -1,3 +1,4 @@
+3sum 多一个变量储存最小差值
 class Solution {
 public:
     
