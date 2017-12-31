@@ -1,0 +1,22 @@
+数值操作类。
+特点：有一定范围，单调->binary search
+Binary search: 先猜一个答案，［l,r] while(还有的找）－继续，注意最后的返回值和避免死循环
+
+弄清楚：取值范围，是否会越界，是否应该用long long
+
+class Solution {
+public:
+    int mySqrt(int x) {
+        long long l = 0;
+        long long r = (long long)x+1; // [0,r) 之间找
+        while(l<r){
+            long long mid = l + (r-l)/2;
+            if(mid * mid == x) return (int)mid;
+            else if(mid * mid < x) {
+                l = mid+1;  
+            }
+            else r = mid;
+        }
+        return (int)l-1;
+    }
+};
