@@ -1,0 +1,26 @@
+类似same tree,加进来一个辅助函数
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool fun(TreeNode* p, TreeNode* q){
+        if(p== NULL && q== NULL) return true;
+        if(p!= NULL && q!= NULL && q->val == p->val){
+            return fun(p->left,q->right) && fun(p->right,q->left);
+        }
+        return false;
+    }
+    
+    bool isSymmetric(TreeNode* root) {
+        if(root == NULL) return true;
+         return fun(root->left, root->right) ;
+
+    }
+};
