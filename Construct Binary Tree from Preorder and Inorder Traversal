@@ -1,0 +1,43 @@
+递归
+由前序，中序构建树
+前序提供的信息：父节点－>从中序找到该值，统计左孩子个数－>回到前序，找到对应的左子树节点进行继续构建
+＊循环为了找到某个值时，找到了就及时break!
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> pre;
+    vector<int> in;
+    TreeNode* build(int st1,int ed1,int st2,int ed2){
+        if(st1>ed1) return NULL;
+        TreeNode* root = new TreeNode(pre[st1]);
+        int find = -1;
+        for(int i = st2; i <= ed2; i++){
+            if(in[i] == root->val) {
+                find = i;
+                break;
+        }
+        }
+        if(find == -1) return NULL;
+        int c = find - st2;
+        root->left = build(st1+1,st1+c,st2,find-1);
+        root->right = build(st1+c+1,ed1,find+1,ed2);
+        return root;
+    }
+    
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        pre = preorder;
+        in = inorder;
+        int l = preorder.size();
+        return build(0,l-1,0,l-1);
+        
+    }
+};
