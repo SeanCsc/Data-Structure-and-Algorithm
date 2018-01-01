@@ -1,0 +1,42 @@
+找到两个数组的公共元素，duplicate free. 因为不能有重复考虑到使用set.每次如果找到了就往里加。
+几点体会：
+1.auto 的运用
+2.vector到set的转化：set(vector<int>.begin(),vector<int>.end())，同理往回转也是类似。
+
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        set<int> s(nums1.begin(), nums1.end());
+        set<int> res;
+        for(auto a:nums2){
+            if(s.find(a) != s.end()) res.insert(a);
+        }
+        vector<int> result;
+        for(auto a:res){
+            result.push_back(a);
+        }
+        return result;
+    }
+};
+
+如果可以有重复。需要统计这一个两边同时出现了多少对。可以用hash_table记录。
+class Solution {
+public:
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+        unordered_map<int,int> hash;
+        for(auto a:nums1){
+            hash[a]++;
+        }
+        vector<int> res;
+        for(auto a:nums2){
+            if(hash[a] > 0){
+                res.push_back(a);
+                hash[a]--;
+            }
+        }
+        return res;
+    }
+};
+
+Follow up:
+如果两个都是排好序的，可以用两个指针，进行遍历优化（根据大小移动）O(m+n)。
