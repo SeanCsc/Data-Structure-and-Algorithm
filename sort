@@ -1,0 +1,58 @@
+1.冒泡排序：越大（小）的慢慢浮在最后。每次比对相邻的两个元素，如果顺序错误就调换过来。每一次只能归位将一个数归位。O(n^2)
+def bubblesort(nums): #descending
+	length = len(nums)
+	for index in range(length):
+		for j in range(1,length-index):
+			if nums[j] > nums[j+1]:
+				nums[j],nums[j+1] = nums[j+1],nums[j]
+	return nums
+ 
+ 2. 选择排序：每次选择出最大／小的元素放在最前面，一个选择一个。O(n^2)
+ def selectsort(nums): #ascending
+	length = len(nums)
+	for index in range(length):
+		for i in range(index+1,length):
+			if nums[index] > nums[i]:
+				nums[index],nums[i] = nums[i],nums[index]
+	return nums
+  
+  3.快速排序：分治思想，把大问题化为小问题。选一个基准数字，小的放一边，大的放一边（实现了分），针对小的和大的重复该过程（治）。
+  借助partition找到分界的地方。技巧：用一个按条件移动的指针来指示小的元素。 nlog(n)
+  def Quicksort(arr, firstIndex,lastIndex):
+	if firstIndex < lastIndex:
+		divIndex = Partition(arr,firstIndex,lastIndex) #sort process
+		QuickSort(arr,firstIndex,divIndex)
+		QuickSort(arr,divIndex+1,lastIndex)
+	return
+
+def Partition(arr,firstIndex, lastIndex):
+	i = firstIndex - 1
+	for j in range(firstIndex,lastIndex):
+		if arr[j] < arr[lastIndex]: #pivot-last element
+			i = i + 1
+			arr[i],arr[j] = arr[j],arr[i] #i control the small element
+	arr[i+1],arr[lastIndex] = arr[lastIndex],arr[i+1]
+	return i
+
+4.Merge Sort:分治。通常引入辅助函数来每次解决子问题。每次对半分，然后针对子问题重复这一过程。
+def merge(left,right):
+	i,j = 0,0
+	result = []
+	while i < len(left) and j < len(right):
+		if left[i] <= right[j]:
+			result.append(left[i])
+			i += 1
+		else:
+			result.append(right[j])
+			j+= 1
+	result += left[i:]
+	result += right[j:]
+	return result
+
+def merge_sort(nums):
+	if len(nums) <= 1:
+		return nums
+	num = len(nums) / 2
+	left = merge_sort(nums[:num])
+	right = mergesort(nums[num:])
+	return merge(left,right)
