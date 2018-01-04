@@ -1,0 +1,39 @@
+返回一个数组的全排列。
+DFS:for()-依次选择每条路，其中的迭代－不断加深，因此迭代的输入要有idx作为指针指示某条路中的位置。
+该题要注意避免重复，那么就要用一个变量来储存标示，在某条路（i）结束后要记得重置。
+
+class Solution {
+public:
+    vector<vector<int>> ans;
+    int path[100];
+    bool visited[100];
+    void robot(int idx, vector<int>& nums){
+        if(idx == nums.size()){
+            vector<int> tmp;
+            for(int i = 0; i < nums.size(); i++){
+                tmp.push_back(path[i]);
+            }
+            ans.push_back(tmp);
+            return;
+        }
+        
+        for(int i = 0; i < nums.size(); i++){
+            if(visited[i] == false){
+            path[idx] = nums[i];
+            visited[i] = true;
+            robot(idx+1,nums);
+            visited[i] = false; //选的某条路
+            }
+        }
+        
+    }
+    
+    
+    vector<vector<int>> permute(vector<int>& nums) {
+        robot(0,nums);
+        return ans;
+    }
+    
+    
+    
+};
