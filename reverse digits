@@ -1,0 +1,19 @@
+1.注意负数的情况引入sign,并转化为正数
+2.注意越界是否大于等于2^31-1
+def solution(x):
+    # your code here
+    ans = 0
+    sign = 1
+    if x<0:
+        sign = -1
+        x = -1 * x
+    while(x != 0):
+        ans = ans*10 + (x%10)
+        if(abs(ans)>=2**31-1):
+            ans = 0
+            break
+            return ans
+        x = x/10
+    ans = ans*sign
+
+    return ans
