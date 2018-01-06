@@ -1,0 +1,19 @@
+Input: a list of integer
+Output:the maximum of profit
+Assumption
+Corner case:0输入
+
+Brute force: 两重循环，找到每一个值对应的最大收入
+优化：因为最大的一定发生在前i个中最小的和后面的值之间，因此思路就是去记录到i为止的最小值，然后去更新最大利润。
+
+def solution(prices):
+    # your code here
+    length = len(prices)
+    if length == 0:
+        return 0
+    maxi = 0
+    mini_price = prices[0]
+    for i in range(length):
+        maxi = max(maxi,prices[i] - mini_price)
+        mini_price = min(mini_price,prices[i])
+    return maxi
