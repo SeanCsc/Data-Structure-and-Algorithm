@@ -17,3 +17,7 @@ def solution(x):
     ans = ans*sign
 
     return ans
+    
+    
+ Time: O(n)
+ Space:O(1)
