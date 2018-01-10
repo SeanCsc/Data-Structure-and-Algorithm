@@ -1,0 +1,18 @@
+find duplicates 的稍微进阶。
+Mask 强制变负 abs
+class Solution {
+public:
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+        int len = nums.size();
+        for(int i = 0 ; i < len; i++){
+            int index = abs(nums[i]) -1;
+            nums[index] = -abs(nums[index]);
+        }
+        vector<int> res;
+        for(int i = 0; i < len; i++){
+            if(nums[i] > 0) 
+                res.push_back(i+1);
+        }
+        return res;
+    }
+};
