@@ -2,6 +2,7 @@
 利用好给的信息  1<=a[i]<=n 
 在该数组上定义一个映射关系，比如取负。下次再次碰到的时候就可以知道是之前遍历过的。但是要注意abs的使用，防止re.
 hash的思想
+
 class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
