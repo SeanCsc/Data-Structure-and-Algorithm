@@ -1,0 +1,30 @@
+正向无序号。快慢指针，相似的问题还有包括找中点啊，找环啊都是利用快慢指针。
+dummy node－因为头也可能被删除，所以无法确定头节点是哪一个。
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode* fast = dummy;
+        ListNode* slow = dummy;
+        int i = n;
+        while(i>0){
+            i--;
+            fast = fast->next;
+        }
+        while(fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next;
+        }
+        slow->next = slow->next->next;
+        return dummy->next;
+    }
+};
