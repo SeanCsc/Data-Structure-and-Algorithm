@@ -1,0 +1,26 @@
+1. 倒序，先跳过空格。新建一个临时存放单词的，word，检测到空格就开始翻转，然后继续跳空格。每次把word加到tmp。这样空间消耗是O(n)
+2. in-place 先整体翻转，再局部翻转。
+class Solution {
+public:
+    void reverseWords(string &s) {
+        int i = s.length() - 1;
+        string ss;
+        while( i >= 0){
+            while(i >=0 && s[i] == ' '){
+                i--;
+            }
+        if(i < 0) break;
+        if(ss.length() != 0){
+            ss.push_back(' ');
+        }
+        string tmp;
+            for(; i>= 0 &&s[i] != ' '; i--){
+                tmp.push_back(s[i]);
+            }
+        reverse(tmp.begin(), tmp.end());
+        ss.append(tmp);
+        }
+        s = ss;
+        return;
+    }
+};
