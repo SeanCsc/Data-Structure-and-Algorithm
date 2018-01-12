@@ -1,0 +1,30 @@
+1.DFS
+  可以直接把tem当作参数传进去，但是每次跑完一层都要把最后一个去掉（pop_back),为for的下一种可能性提供地方。
+  确定长度的可以用全局变量，每次更新。讲道理，如果不确定长度，还是每次传临时holder进去比较好。
+ 2. 自己构建一个string[]的字典
+  class Solution {
+public:
+    const string alpha[8] = {
+         "abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+   
+    vector<string> letterCombinations(string digits) {
+         vector<string> res;
+        if (digits.length() == 0) return res; 
+        string alphas;
+        robot(0,alphas,res,digits);
+        return res;
+    }
+
+    void robot(int idx, string &alphas, vector<string> &res, string &digit){
+        if(idx >= digit.length()){
+            res.push_back(alphas);
+            return;
+        }
+        for(auto &a:alpha[digit[idx] -'2']){  //注意如果是字符串里的数字要转化成数字 －'0'
+            alphas.push_back(a);
+            robot(idx+1, alphas, res, digit);
+            alphas.pop_back(); //string push_back/pop_back
+        }
+        
+    }
+};
