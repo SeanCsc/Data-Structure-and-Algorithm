@@ -1,0 +1,23 @@
+DP 问题
+1.递归－>拆建成子问题。
+2.空间换时间，每一步存着到此时的最佳答案
+3.注意corner case.
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int length = nums.size();
+        if(length == 0 ) return 0;
+        if(length ==1 ) return nums[0];
+        int res[length];
+        for(int i = 0 ; i<length;i++){
+            res[i] = -1;
+        }
+        int sum = 0;
+        res[0] = nums[0];
+        res[1] = max(nums[1],nums[0]);
+        for(int i = 2; i< length; i++){
+            res[i] = max(res[i-1], (nums[i] + res[i-2]));
+        }
+        return res[length-1];
+    }
+};
