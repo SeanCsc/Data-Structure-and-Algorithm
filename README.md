@@ -1,6 +1,6 @@
 Data structures and Algorithms
 ========
-
+Include common data structures, algorithm implementation, leetcode and lintcode problems
 ### LeetCode Algorithm
 
 [code]https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/
