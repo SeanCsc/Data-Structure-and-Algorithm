@@ -8,8 +8,8 @@ LeetCode
 
 | # | Title | Solution | Difficulty |Idea |
 |---| ----- | -------- | ---------- |---- |
-|1|[Two Sum](https://oj.leetcode.com/problems/two-sum/)| [C++]((https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/two%20sum))|Medium|Hash table/double pointer(head-tail)|
-|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/)| [C++]((https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/two%20sum))|Medium|Hash table/double pointer(head-tail)|
+|1|[Two Sum](https://oj.leetcode.com/problems/two-sum/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/two%20sum)|Medium|Hash table/double pointer(head-tail)|
+|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/two%20sum)|Medium|Hash table/double pointer(head-tail)|
 
 
 ### LeetCode Shell
