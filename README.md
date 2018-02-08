@@ -1,4 +1,4 @@
-LeetCode
+Data structures and Algorithms
 ========
 
 ### LeetCode Algorithm
