@@ -1,0 +1,32 @@
+首先要找到某个字母出现最多的次数，设置为该数组的度。然后找到和这个度一样的最短子序列。
+换句话说，其实这个最短子序列是和那个数有关的，我们只需要找到最多的那个数的头和尾即可。
+
+hash table非常适合记录次数／是否出现过，记录位置（2-sum)
+所以这题用3个hash table,分别记录次数，左index，右index
+循环的过程中，找到最大的频率。
+
+auto其实很适合用于hashtable里，因为first是hash table的索引，second是其内容，很方便读取。
+
+class Solution {
+public:
+    int findShortestSubArray(vector<int>& nums) {
+        unordered_map<int,int> count,left,right;
+        int maxf = 0;
+        for(int i = 0 ; i < nums.size(); i++){
+            count[nums[i]]++;
+            maxf = max(maxf,count[nums[i]]);
+            if(left.find(nums[i]) == left.end()){
+                left[nums[i]] = i;
+            }
+            right[nums[i]] = i;
+        }
+        if(maxf == 1) return 1;
+        int res = nums.size();
+        for (auto m:count){
+            if(m.second == maxf){
+                res = min(res,right[m.first] - left[m.first] +1);
+            }
+        }
+            return res;
+    }
+};
