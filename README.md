@@ -3,13 +3,15 @@ LeetCode
 
 ### LeetCode Algorithm
 
-(Notes: "&hearts;" means you need to buy a book from Leetcode)
-
+[code]https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/
 
 | # | Title | Solution | Difficulty |Idea |
 |---| ----- | -------- | ---------- |---- |
-|1|[Two Sum](https://oj.leetcode.com/problems/two-sum/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/two%20sum)|Medium|Hash table/double pointer(head-tail)|
-|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/two%20sum)|Medium|Hash table/double pointer(head-tail)|
+|1|[Two Sum](https://oj.leetcode.com/problems/two-sum/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/two%20sum)|Medium|Hash table/double pointer(head-tail)|
+|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/Add%20two%20numbers)|Medium|dummy node/count|
+|3|[Longest Substring without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/Add%20two%20numbers)|Medium|dummy node/count|
+|697|[Degree of An Array](https://leetcode.com/problems/degree-of-an-array/description/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/Degree%20of%20an%20array)|Easy|hash table|
+
 
 
 ### LeetCode Shell
