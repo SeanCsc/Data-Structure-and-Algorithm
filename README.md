@@ -6,10 +6,10 @@ LeetCode
 (Notes: "&hearts;" means you need to buy a book from Leetcode)
 
 
-| # | Title | Solution | Difficulty |Idea
-|---| ----- | -------- | ---------- |----
-
-|1|[Two Sum](https://oj.leetcode.com/problems/two-sum/)| [C++](./algorithms/cpp/twoSum/twoSum.cpp)|Medium|[Link](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/two%20sum)
+| # | Title | Solution | Difficulty |Idea |
+|---| ----- | -------- | ---------- |---- |
+ 
+|1|[Two Sum](https://oj.leetcode.com/problems/two-sum/)| [C++](./algorithms/cpp/twoSum/twoSum.cpp)|Medium|[Link](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/two%20sum)|
 
 
 ### LeetCode Shell
