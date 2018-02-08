@@ -13,17 +13,6 @@ Include common data structures, algorithm implementation, leetcode and lintcode 
 |697|[Degree of An Array](https://leetcode.com/problems/degree-of-an-array/description/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/Degree%20of%20an%20array)|Easy|hash table|
 
 
-
-### LeetCode Shell
-
-
-| # | Title | Solution | Difficulty |
-|---| ----- | -------- | ---------- |
-|4|[Tenth Line](https://leetcode.com/problems/tenth-line/)| [Bash](./shell/TenthLine.sh)|Easy|
-|3|[Transpose File](https://leetcode.com/problems/transpose-file/)| [Bash](./shell/TransposeFile.sh)|Medium|
-|2|[Valid Phone Numbers](https://leetcode.com/problems/valid-phone-numbers/)| [Bash](./shell/ValidPhoneNumbers.sh)|Easy|
-|1|[Word Frequency](https://leetcode.com/problems/word-frequency/)| [Bash](./shell/WordFrequency.sh)|Medium|
-
 ### LintCode    
 
 | # | Title | Solution | Difficulty |
