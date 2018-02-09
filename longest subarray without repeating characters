@@ -1,0 +1,28 @@
+最长／最短子数组 通常采用双指针slidng window解决，每次按条件更新还原
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int n = s.length();
+        int left = 0;
+        bool used[128] = {false};
+        int maxi = 0;
+        int right = 0;
+        while(right < n){
+            if(used[s[right]] == false){
+                used[s[right]] = true;
+                right++;
+            }
+            else{
+                maxi = max(maxi,right - left);
+                while( s[left]!=s[right]){
+                    used[s[left]] = false;
+                    left++;
+                }
+                left = left+1;
+                right = right +1;
+            }
+        }
+        maxi = max(maxi,right - left);
+        return maxi;
+    }
+};
