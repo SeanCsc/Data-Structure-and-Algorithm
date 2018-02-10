@@ -20,10 +20,3 @@ Include common my implementation of data structures, algorithm, leetcode and lin
 |---| ----- | -------- | -----|
 |1|Mergesort|[Python](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Data%20structures/mergesort.py)|divide and conquer|
 |2|Quicksort|[Python](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Data%20structures/quick%20sort.py)|pivot,recursive|
-
-### LintCode    
-
-| # | Title | Solution | Difficulty |
-|---| ----- | -------- | ---------- |
-|1|[Search in a big sorted array](http://www.lintcode.com/en/problem/search-in-a-big-sorted-array/)|[Java](./algorithms/java/src/searchInABigSortedArray/searchInABigSortedArray.java)|Medium|
-|2|[Search Range in Binary Search Tree](http://www.lintcode.com/en/problem/search-range-in-binary-search-tree/) | [Java](./algorithms/java/src/searchRangeInBinarySearchTree/searchRangeInBinarySearchTree.java)|Medium|
