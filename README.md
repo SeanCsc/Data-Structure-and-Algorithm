@@ -15,6 +15,11 @@ Include common my implementation of data structures, algorithm, leetcode and lin
 |141|[Linked list cycle](https://leetcode.com/problems/linked-list-cycle/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/141%2C142%20Linked%20List%20Cycle)|Easy|fast-slow pointer|[Linked list cycle2](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/141%2C142%20Linked%20List%20Cycle)|
 |697|[Degree of An Array](https://leetcode.com/problems/degree-of-an-array/description/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/Degree%20of%20an%20array)|Easy|hash table|
 
+### Basic algorithm and structures
+| # | Title | Solution | Idea |
+|---| ----- | -------- | -----|
+|1|Mergesort|[Python](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Data%20structures/mergesort.py)|divide and conquer|
+|2|Quicksort|[Python](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Data%20structures/quick%20sort.py)|pivot,recursive|
 
 ### LintCode    
 
