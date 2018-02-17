@@ -1,0 +1,43 @@
+找到两个linked list相交的地方。
+要注意其引出的一个性质是在某个点的时候如果相交，那么后面的长度也都一样。
+一种思路：先为你创造你要的条件（使其变成等长）然后依次比较
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int getLength(ListNode* head){
+        int res = 0;
+        while(head){
+            head = head->next;
+            res++;
+        }
+        return res;
+    }
+    
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        int lena = getLength(headA);
+        int lenb = getLength(headB);
+        if(lena > lenb){
+            for(int i = 0 ; i<lena-lenb; i++){
+                headA = headA->next;
+            }
+        }
+        else{
+            for(int i = 0 ; i<lenb-lena; i++){
+                headB= headB->next;
+            }
+        }
+        while(headA&&headB&&(headA!=headB)){
+            headA = headA->next;
+            headB = headB->next;
+            
+        }
+        return headA;
+    }
+};
