@@ -1,0 +1,27 @@
+找到旋转数组中的最小值。要注意没有旋转的情况时，第一个数是最小的。二分查找，找到分割断点，比较**第一个值和中间值**,利用这两个值关系去考虑砍掉哪一半。
+
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int len = nums.size();
+        int l = 0 ;
+        int r = len - 1;
+        int mid ;
+        if(len == 1) return nums[0];
+        while(nums[l] > nums[r]){
+            if(r - l == 1){
+                mid = r;
+                break;
+            }
+            mid = l + (r - l)/2;
+            if(nums[mid] >= nums[l]){
+                l = mid;
+            }
+            if(nums[mid] < nums[l]){
+                r = mid;
+            }
+        }
+        return min(nums[mid],nums[0]);
+    }
+};
+如果有重复情况，就要遍历了。
