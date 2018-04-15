@@ -1,0 +1,35 @@
+dfs
+一定要抓住问题的关键。比如循环：那么结束条件是什么。比如递归的常用套路：标示visited,传index（深度），那么对于结果可以传下一层或者当做返回。for是可能的
+路径。
+
+递归真的很有意思，把一个大问题完全拆解成小问题，你只要找到要传什么，何时停止就行。
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+/*
+把结果传到下一层。
+*/
+class Solution {
+public:
+    int sumNumbers(TreeNode* root) {
+        return helper(root,0);
+    }
+    int helper(TreeNode* root, int sum){
+        if(root == NULL){
+            return 0;
+        }
+        if(root->left ==NULL && root->right == NULL){
+            return sum*10 + root->val;
+        }
+        else{
+            return helper(root->left,sum*10 + root->val) + helper(root->right, sum*10 + root->val);
+        }
+    }
+};
