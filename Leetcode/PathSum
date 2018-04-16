@@ -1,0 +1,110 @@
+1.判断从root到Leaf是否有路径和和target一致
+特征：不知道路上有多少个节点－可以用递减的方式，看到叶子的值是否和减到最后是一样的。
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+/*
+得到的启示：递归的关键还是在于把什么传到下一层以及何时停止，这个题如果是判断和是否一致这样的，可以用减法如果到最后一个node相等那就是true了
+*/
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int sum) {
+        return helper(root,sum);
+    }
+    bool helper(TreeNode* root, int sum){
+        if(root == NULL) return false;
+        if(root->left== NULL && root->right == NULL){
+            return root->val == sum;
+        }
+        else{
+            return helper(root->left,sum-root->val)||helper(root->right,sum-root->val);
+        }
+    }
+};
+2.保存所有可能的路径
+这个就是设置全局变量，用临时变量存储某条路径上所有节点，如果这条路径满足了，就加进去
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+/*
+和1相比，这一次不能简单地判断是否相等了，递归其实是把结果都存到了栈中
+还是把结果传到下一层把
+通常要记录结果的用全局变量，然后辅助函数返回void
+*/
+class Solution {
+public:
+    vector<vector<int>> res;
+    vector<vector<int>> pathSum(TreeNode* root, int sum) {
+        if(root == NULL){
+            return res;
+        }
+        vector<int> tmp;
+        helper(root,tmp,sum);
+        return res;
+    }
+    void helper(TreeNode* root, vector<int> tmp, int sum){
+        if(root == NULL) return;
+        if(root->left == NULL && root->right == NULL & root->val ==sum){
+            tmp.push_back(root->val);
+            res.push_back(tmp);
+            vector<int> tmp;
+            return;
+        }
+        else{
+            tmp.push_back(root->val);
+            helper(root->left,tmp,sum-root->val);
+            helper(root->right,tmp,sum-root->val);         
+        }
+    }
+    
+    
+};
+
+
+3.不一定是从root开始，但是问题是统计总的个数。
+ 这个要考虑每一个节点作为root的情况，全部加起来
+ 并且考虑每条路径上满足条件的个数。
+ /**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+/*
+这个题可以从任何一个节点开始，不过好处是只需要统计总的次数，那么什么样算那，只要这个root达到了就可以算，但是每次除了要考虑之前的还要考虑以本次作为开始的
+每一个节点都可能作为起始节点
+
+*/
+class Solution {
+public:
+    
+    int pathSum(TreeNode* root, int sum) {
+        int count = 0;
+        if(root == NULL) return 0;
+        return helper(root,sum) + pathSum(root->left,sum) + pathSum(root->right,sum);
+    }
+    int helper(TreeNode* root, int sum){
+        if(root == NULL) return 0;
+        int count = 0;
+        if(root->val == sum) count++;
+        return helper(root->left,sum-root->val) + helper(root->right, sum-root->val)+ count;
+    }
+};
