@@ -1,0 +1,27 @@
+找到子序列的最大和。
+对每一个元素有两种选择，加入前序或者说选自己。每一次存上最大的。
+两层比较。
+DP:
+无后效性
+每一个子序列都是最优的。
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int n = nums.size();
+        if(n == 1) return nums[0];
+        int sum = nums[0];
+        int maxi = sum;
+        for(int i = 1 ; i < n ; i++){
+            int tmp = sum + nums[i];
+            if(tmp < nums[i]){
+                sum = nums[i];
+            }
+            else{
+                sum = tmp;
+            }
+            if(sum > maxi)  maxi = sum ;
+        }
+        return maxi;
+        
+    }
+};
