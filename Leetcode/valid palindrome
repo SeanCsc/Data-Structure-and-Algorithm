@@ -1,0 +1,27 @@
+1.大小写转换的判断，大小写之间相差了32
+2.考虑到是否必须要执行选择if/else或者while语句
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        if(s == " ") return true;
+        int left=0,right = s.size()-1;
+        while(left<right){
+            if(!isChar(s[left])) left++;
+            else if(!isChar(s[right])) right--;
+            else if ((s[left] + 32 - 'a')%32 != (s[right] + 32 - 'a') %32){
+                return false;
+            }
+            else{
+                left++;
+                right--;
+            }
+        }
+        return true;
+    }
+    bool isChar(char a){
+        if (a >='a' && a <='z') return true;
+        if (a >= 'A' && a <= 'Z') return true;
+        if (a >= '0' && a<= '9') return true;
+        return false;
+    }
+};
