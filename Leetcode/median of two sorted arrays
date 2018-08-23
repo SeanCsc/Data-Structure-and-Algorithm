@@ -1,0 +1,38 @@
+关键点：
+先拓展到找两个数组第k大的数，这时候要将两个数组切分两半，目的是使得左边部分正好是k个数。关键就在于那两个support vector的处理和寻找。
+寻找时是基于二分，直到找到l=r的时候就可以找到。
+然后一些情况讨论，如果是奇数，那么左边的support vector的最大值就是那个中位数，否则就是左边大的和右边小的进行平均。
+
+注意点：
+1.要注意m1和m2是否越界，越界的话在找大／小值的时候用INT_MIN或INT_MAX代替。
+2.取平均的时候要用＊0.5
+
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        int n1 = nums1.size();
+        int n2 = nums2.size();
+        if(n1>n2) return findMedianSortedArrays(nums2,nums1);
+        int k = (n1+n2+1)/2;
+        int l = 0;
+        int r = n1;
+        while(l<r){
+            int m1 =l+(r-l)/2;
+            int m2 = k-m1;
+            if(nums1[m1]<nums2[m2-1]){
+                l = m1+1;
+            }
+            else{
+                r = m1;
+            }
+        }
+        int m1=l;
+        int m2=k-l;
+        int cl = max(m1<=0 ? INT_MIN:nums1[m1-1],m2<=0?INT_MIN:nums2[m2-1]);
+        int cr = min(m1>=n1? INT_MAX:nums1[m1],m2>=n2?INT_MAX:nums2[m2]);
+        if((n1+n2)%2==1) return cl;
+        else{
+            return (cl+cr)*0.5;
+        }
+    }
+};
