@@ -23,7 +23,6 @@ Include common my implementation of data structures, algorithm, leetcode and lin
 |160|[Intersection of two linked list](https://leetcode.com/problems/intersection-of-two-linked-lists/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/141%2C142%20Linked%20List%20Cycle)|Easy|same length|[Intersection of two arrays](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Intersection%20of%20two%20arrays)|
 |232|[Implement Queues with stacks](https://leetcode.com/problems/implement-queue-using-stacks/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Intersection%20of%20Two%20Linked%20List)|Easy|two stacks|[Implement stacks with queues](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Implement%20stack%20using%20queue)|
 |692|[Degree of An Array](https://leetcode.com/problems/degree-of-an-array/description/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/Degree%20of%20an%20array)|Easy|hash table|
-
 |697|[Top k Frequent Words](https://leetcode.com/problems/top-k-frequent-words/description/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/TopKFrequent)|Easy|hash table,priorityQueue|
 
 ### Basic algorithm and structures
