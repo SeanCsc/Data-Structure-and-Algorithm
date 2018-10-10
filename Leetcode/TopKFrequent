@@ -1,0 +1,58 @@
+非常棒且全面的题
+考察的知识点：
+1.是否会根据需要定义一个Pair类
+2.是否会使用HashMap，以及HashMap的更新
+3.是否会自定义一个PriorityQueue 并重写Comparator的compare函数来实现最大堆／最小堆－如何返回 默认前者小－小堆 (数字的比较以及字符串的比较）
+4.是否会使用Map的Entry来生成相应的Pair
+5.是否会使用其远古父类Collections的sort/reverse方法
+
+class Solution {
+    public class Pair{
+        String word;
+        Integer count;
+        public Pair(String word,Integer count){
+            this.word = word;
+            this.count = count;
+        }
+    }
+    public List<String> topKFrequent(String[] words, int k) {
+        
+        //use a hashMap to store the frequency
+        HashMap<String,Integer> map = new HashMap<String,Integer>();
+        for(String word:words){
+            if(map.containsKey(word)){
+                map.put(word,map.get(word)+1);
+            }
+            else{
+                map.put(word,1);
+            }
+        }
+        //define the min-heap
+        PriorityQueue<Pair> pq= new PriorityQueue<Pair>(new Comparator<Pair>(){
+            public int compare(Pair A, Pair B){
+                if(A.count!=B.count){
+                    return A.count-B.count;
+                }
+                else{
+                    return B.word.compareTo(A.word);
+                }
+            }
+        });
+        
+        //maintain the heap
+        for(Map.Entry<String,Integer> ele:map.entrySet()){
+            Pair p = new Pair(ele.getKey(),ele.getValue());
+            pq.offer(p);
+            if(pq.size()>k){
+                pq.poll();
+            }
+        }
+        //return the results
+        List<String> res = new ArrayList<String>();
+        while(pq.size()>0){
+            res.add(pq.poll().word);
+        }
+        Collections.reverse(res);
+        return res;
+    }
+}
