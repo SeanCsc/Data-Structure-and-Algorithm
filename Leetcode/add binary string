@@ -1,0 +1,24 @@
+这个题的几个启发：
+1.结果和中间的分离，比如这里可以用一个StringBuilder来存每一位上的结果，但是中间每一位的处理可以非常灵活，比如就直接用一个sum来记录所有可能的加和部分，这样的一个
+好处是可以将不同长度的字符串用统一的格式。
+2.StringBuilder的好处：速度更快一些；而且是变量，适合对字符串进行增删改查，但是注意在最后返回的时候，要用toString();
+3.典型的从后往前加的题。类似的题比如字符串10进制的加和，类似的思想。
+class Solution {
+    public String addBinary(String a, String b) {
+        StringBuilder sb = new StringBuilder();
+        int i = a.length()-1;
+        int j = b.length()-1;
+        int count = 0;
+        while(i>=0 || j >=0){
+            int sum = count;
+            if(i>=0) sum+= a.charAt(i)-'0';
+            if(j>=0) sum+= b.charAt(j)-'0'; 
+            sb.append(sum%2);
+            count = sum/2;
+            i--;
+            j--;
+        }
+        if(count==1) sb.append('1');
+        return sb.reverse().toString();
+    }
+}
