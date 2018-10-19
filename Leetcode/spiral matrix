@@ -1,0 +1,37 @@
+旋转矩阵。
+还是一个找规律的题，找到规律所在。
+这题的关键就是用4个角来控制位置，当行列的关系没有结束时，循环走一遍。
+要注意的点就是在对角进行加减后，也一定要继续判断其是否仍然会满足行列关系条件。条件都要判断，但是因为for循环里有判断条件的意味，所以可以省掉一半，只判断另一半。
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> res = new ArrayList<Integer>();
+        if(matrix.length<=0 || matrix[0].length<=0) return res;
+        int rowBegin = 0;
+        int rowEnd = matrix.length-1;
+        int colBegin = 0;
+        int colEnd = matrix[0].length-1;
+        while(rowBegin<=rowEnd && colBegin<=colEnd){
+            for(int i = colBegin; i <= colEnd; i++){
+                res.add(matrix[rowBegin][i]);
+            }
+            rowBegin++;
+            for(int i = rowBegin; i <=rowEnd; i++){
+                res.add(matrix[i][colEnd]);
+            }
+            colEnd--;
+            if(rowBegin<=rowEnd){
+                for(int i = colEnd; i >= colBegin; i --){
+                    res.add(matrix[rowEnd][i]);
+                }
+            }
+            rowEnd--;
+            if(colBegin<=colEnd){
+                for(int i = rowEnd; i >=rowBegin; i--){
+                    res.add(matrix[i][colBegin]);
+                }
+            }
+            colBegin++;
+        }
+        return res;
+    }
+}
