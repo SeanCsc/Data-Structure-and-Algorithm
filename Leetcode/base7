@@ -1,0 +1,21 @@
+将10进制的数转化为7进制的数。
+典型的while下面取余再除的过程。
+但是要注意：
+符号要记录；
+中间处理的时候用绝对值进行处理以及用绝对值进行处理。
+class Solution {
+    public String convertToBase7(int num) {
+        StringBuilder s = new StringBuilder();
+        
+        if(num == 0) return "0";
+        Boolean posi = (num>0);
+        while(Math.abs(num)>0){
+            s.append(Math.abs(num)%7);
+            num = num/7;
+        }
+        if(posi==false){
+            s.append("-");
+        }
+        return s.reverse().toString();
+    }
+}
