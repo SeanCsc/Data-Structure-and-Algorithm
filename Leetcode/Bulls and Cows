@@ -1,0 +1,31 @@
+比较两个字符串的题
+哈希表的普通应用，主要用来熟悉哈希表的接口。
+class Solution {
+    public String getHint(String secret, String guess) {
+        String s = "";
+        int numBull = 0;
+        for(int i = 0 ; i < secret.length(); i++){
+            if(secret.charAt(i) == guess.charAt(i)){
+                numBull++;
+            }
+        }
+        HashMap<Character,Integer> map = new HashMap();
+        for(int i= 0 ; i < secret.length(); i++){
+            if(map.containsKey(secret.charAt(i))){
+                map.put(secret.charAt(i),map.get(secret.charAt(i))+1);
+            }
+            else{
+                map.put(secret.charAt(i),1);
+            }
+        }
+        int numCow = 0;
+        for(int i = 0 ; i < guess.length(); i++ ){
+            if(map.containsKey(guess.charAt(i)) &&map.get(guess.charAt(i))>0 ){      numCow++;
+            map.put(guess.charAt(i),map.get(guess.charAt(i))-1);
+            }
+        }
+        numCow = numCow-numBull;
+        s = String.valueOf(numBull)+'A'+String.valueOf(numCow)+'B';
+        return s;
+    }
+}
