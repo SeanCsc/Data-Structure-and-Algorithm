@@ -1,0 +1,30 @@
+给一个路径，返回其最后所在的路径。
+好久没刷新题了，这是非常棒的一个新题。也代表了一类利用stack存储的题目，路径的题大部分都是利用stack,因为其可以很好地控制进出。
+分几种情况：1- ./"" 2- .. 3- others
+针对不同的情况采取相应的出栈进栈或者不操作即可。
+然后就是"\+"的正则切分。
+*善于用split做切分*
+
+*注意栈里不要加入其他的东西，否则最后会多出来一些东西*
+
+class Solution {
+    public String simplifyPath(String path) {
+        String[] s = path.split("/+");
+        Stack<String> stack = new Stack<>();
+        for(String item:s){
+            if(item.equals("..")){
+                if(!stack.isEmpty()){
+                    stack.pop();
+                }
+            }else if(!item.equals(".") && !item.equals("")){
+                stack.push(item);
+            }
+        }
+        String res="";
+        while(!stack.isEmpty()){
+            res = "/"+stack.pop()+res;
+        }
+        if(res.length()==0) return "/";
+        return res;
+    }
+}
