@@ -1,0 +1,21 @@
+数字转换成罗马数字
+典型的找钱思想，从大的依次找（while)
+但是要注意几个细节：
+1.构建的数字数组和字母数组要包括所有的特殊情况
+2.数组初始化是用的大括号
+class Solution {
+    public String intToRoman(int num) {
+        int[] vals = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        String[] syms = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+        StringBuilder sb = new StringBuilder();
+        while(num>0){
+            for(int i = 0 ; i < vals.length;i++){
+                while(num>=vals[i]){
+                    num -=vals[i];
+                    sb.append(syms[i]);
+                }
+            }
+        }
+        return sb.toString();
+    }
+}
