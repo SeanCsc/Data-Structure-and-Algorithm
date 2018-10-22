@@ -1,0 +1,30 @@
+典型的dfs套路题，但是要注意几个问题
+1.如果用StringBuilder要注意不要对整体变量进行操作，最好用String在函数里进行操作。
+2.还是用传参的方式更方便一些。
+class Solution {
+    public List<String> letterCasePermutation(String S) {
+        List<String> res = new ArrayList<String>();
+        res.clear();
+        StringBuilder sb = new StringBuilder();
+        robot(0,res,"",S);
+        return res;
+    }
+    public void robot(int index, List<String> res,String sb,String S){
+        if(index == S.length()){
+            res.add(sb);
+            return;
+        }
+        Character c = S.charAt(index);
+        if(c>='0' && c<='9'){
+            robot(index+1,res,sb+c,S);
+        }
+        else{
+            Character lower = Character.toLowerCase(c);
+            Character upper = Character.toUpperCase(c);
+            robot(index+1,res,sb+lower,S);
+            robot(index+1,res,sb+upper,S);
+        }
+    }
+    
+    
+}
