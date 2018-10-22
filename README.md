@@ -37,6 +37,7 @@ Include common my implementation of data structures, algorithm, leetcode and lin
 |504|[base 7](https://leetcode.com/problems/base-7/submissions/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/base7)|Easy|while(%/)||
 |692|[Degree of An Array](https://leetcode.com/problems/degree-of-an-array/description/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/Degree%20of%20an%20array)|Easy|hash table|
 |697|[Top k Frequent Words](https://leetcode.com/problems/top-k-frequent-words/description/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/TopKFrequent)|Easy|hash table,priorityQueue|
+|784|[Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation/description/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Letter%20Case%20Permutation)|Easy|DFS|
 
 ### Basic algorithm and structures
 | # | Title | Solution | Idea |
