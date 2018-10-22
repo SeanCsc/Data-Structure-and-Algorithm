@@ -1,4 +1,4 @@
-> 思想是最重要的
+e> 思想是最重要的
 
 Data structures and Algorithms
 ========
@@ -13,6 +13,11 @@ Include common my implementation of data structures, algorithm, leetcode and lin
 |2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/Add%20two%20numbers)|Medium|dummy node/count|
 |3|[Longest Substring without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/longest%20substring%20without%20repeating%20word)|Medium|two pointers/sliding window|
 |4|[Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/median%20of%20two%20sorted%20arrays)|Hard|binary search|
+|5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Longest%20Palindromic%20Substring)|Median|dp|
+|12|[Integer to Roman](https://leetcode.com/problems/integer-to-roman/description/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Integer%20to%20Roman)|Median||
+|5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Longest%20Palindromic%20Substring)|Median|dp找钱|
+|5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Longest%20Palindromic%20Substring)|Median|dp思想|
+|5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Longest%20Palindromic%20Substring)|Median|dp＋模拟类|
 |5|[Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Longest%20Palindromic%20Substring)|Median|dp|
 |24|[Swap Nodes in Pair](https://leetcode.com/problems/swap-nodes-in-pairs/description/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Swap%20nodes%20in%20pair)|Median|链表基本操作|
 |46|[Permutations](https://leetcode.com/problems/permutations/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Permutation)|Medium|DFS|[Permutation2](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/permutations2)
