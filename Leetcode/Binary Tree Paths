@@ -1,0 +1,31 @@
+典型的dfs套路，广度上就是左右子树
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<String> binaryTreePaths(TreeNode root) {
+        List<String> res = new ArrayList<String>();
+        if(root==null) return res;
+        robot(root,res,String.valueOf(root.val));
+        return res;
+    }
+    public void robot(TreeNode root, List<String> res,String tmp){
+        if(root.left==null && root.right==null){
+            res.add(tmp);
+        }
+        if(root.left!=null){
+            robot(root.left,res,tmp+"->"+root.left.val);
+        }
+        if(root.right!=null){
+            robot(root.right,res,tmp+"->"+root.right.val);
+        }
+    }
+    
+    
+}
