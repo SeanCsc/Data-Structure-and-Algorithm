@@ -1,4 +1,4 @@
-e> 思想是最重要的
+> 思想是最重要的
 
 Data structures and Algorithms
 ========
