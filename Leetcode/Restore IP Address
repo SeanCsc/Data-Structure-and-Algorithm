@@ -1,0 +1,25 @@
+DFS框架 但是要注意几点：
+1.横向的选择是1/2/3个字符，注意不要越界
+2.注意判断局部有效性
+3.字符串拼接可以用三目运算符，这里要用一个count记录有几个part了已经
+class Solution {
+    public List<String> restoreIpAddresses(String s) {
+        List<String> res = new ArrayList<String>();
+        helper(res,s,0,0,"");
+        return res;
+    }
+    public void helper(List<String> res, String s, int index, int count,String rest){
+        if(count>4) return;
+        if(count==4 && index == s.length()){
+            res.add(rest);
+            return;
+        }
+        for(int i = 1; i <4 ;i++){
+            if(index+i > s.length()) break;
+            String temp = s.substring(index,index+i);
+            if((temp.startsWith("0")&&temp.length()>1) ||(i==3 && Integer.parseInt(temp)>=256) ) continue; //check if the new string is a valid part
+            helper(res,s,index+i,count+1,rest+temp+(count==3?"":"."));
+        }
+    }
+    
+}
