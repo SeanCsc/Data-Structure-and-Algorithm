@@ -1,0 +1,20 @@
+最长公共前缀
+
+最直接的方法：遍历依次比较。注意几个细节：不要越界；StringBuilder最后要用String.valueOf()转化
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if(strs.length==0) return "";
+        StringBuilder sb = new StringBuilder();
+        String tmp = strs[0];
+        for(int i = 0 ; i < tmp.length(); i++){
+            char c = tmp.charAt(i);
+            for(int j = 1; j<strs.length;j++){
+                if(strs[j].length()==i) return  String.valueOf(sb);
+                char com = strs[j].charAt(i);
+                if(c!=com) return String.valueOf(sb);
+            }
+                sb.append(c);
+        }
+    return String.valueOf(sb);
+    }
+}
