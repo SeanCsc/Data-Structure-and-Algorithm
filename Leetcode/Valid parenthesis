@@ -1,0 +1,31 @@
+1.典型的先存起来后面用（栈）
+2.要注意几点：Java可以直接用Stack；别忘了最后判断栈是不是为空。
+
+class Solution {
+    public boolean isValid(String s) {
+        int n = s.length();
+        Stack<Character> stack = new Stack<Character>();
+        for(int i = 0; i < n; i++){
+            if(s.charAt(i)=='(' || s.charAt(i)=='[' || s.charAt(i)=='{'){
+                stack.push(s.charAt(i));
+            }
+            else if(s.charAt(i)==')' || s.charAt(i)==']' || s.charAt(i)=='}'){
+                if(stack.isEmpty()){
+                    return false;
+                }
+                char top = stack.pop();
+                if(s.charAt(i)==')' && top!='('){
+                    return false;
+                }
+                else if(s.charAt(i)==']' && top!='['){
+                    return false;
+                }
+            else if(s.charAt(i)=='}' && top!='{'){
+                    return false;
+                }
+            }
+        }
+        if(!stack.isEmpty()) return false;
+        return true;
+    }
+}
