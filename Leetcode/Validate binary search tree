@@ -1,0 +1,23 @@
+典型的DFS,注意利用好min,root.val和max之间的关系
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public boolean isValidBST(TreeNode root) {
+        if(root == null) return true;
+        return helper(root,null,null);
+    }
+    public static boolean helper(TreeNode root,Integer min,Integer max){
+        if(root==null) return true;
+        if(min!=null && min>=root.val) return false;
+        if(max!=null && max<=root.val) return false;
+        return helper(root.left,min,root.val) && helper(root.right,root.val,max);
+    }
+    
+}
