@@ -1,0 +1,28 @@
+数组模拟加法操作。
+常规的从后往前找非9的数停。但是要注意几个corner case的情况，比如全是9等。
+general: 新建一个数组，根据不同的情况分别进行赋值。这道题复习了如何新建一个数组。
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int n = digits.length-1;
+        int k;
+        int[] digit_new;
+        while(n>=0 && digits[n] == 9){
+            n--;
+        }
+        if(n<0){
+            digit_new = new int[digits.length+1];
+            digit_new[0] = 1;
+            for(int i = 1; i < digit_new.length;i++){
+                digit_new[i] = 0;
+            }
+        }
+        else{
+            digits[n] = digits[n]+1;
+        for(int i = n+1; i<digits.length; i++){
+            digits[i] = 0;
+        }
+            digit_new = digits;
+    }
+        return digit_new;
+    }
+}
