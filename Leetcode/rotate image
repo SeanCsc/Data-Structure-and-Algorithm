@@ -1,0 +1,30 @@
+矩阵的旋转。常规旋转很麻烦。这里用了一个几何的小技巧。
+先对角交换，然后水平交换可以达到同样的效果。并且代码量大大减少。有时候多想想等效转换。
+class Solution {
+    public void rotate(int[][] matrix) {
+        if(matrix.length ==0) return;
+        int n = matrix.length;
+        //diagnoal change
+        for(int i = 0; i < n;i++){
+            for(int j = i+1;j<n;j++){
+                int tmp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = tmp;
+            }
+        }
+        
+        //horizontal change
+        for(int i =0;i<n;i++){
+            int left = 0;
+            int right = n-1;
+            while(left<right){
+                int tmp = matrix[i][left];
+                matrix[i][left] = matrix[i][right];
+                matrix[i][right] = tmp;
+                left++;
+                right--;
+            }
+        }
+        return;
+    }
+}
