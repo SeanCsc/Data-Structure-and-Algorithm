@@ -19,6 +19,7 @@ Include common my implementation of data structures, algorithm, leetcode and lin
 |20|[Valid Parenthesis](https://leetcode.com/problems/valid-parentheses/description/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Valid%20parenthesis)|Easy|栈|
 |24|[Swap Nodes in Pair](https://leetcode.com/problems/swap-nodes-in-pairs/description/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Swap%20nodes%20in%20pair)|Median|链表基本操作|
 |46|[Permutations](https://leetcode.com/problems/permutations/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Permutation)|Medium|DFS|[Permutation2](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/permutations2)
+|48|[Rotate Image](https://leetcode.com/problems/rotate-image/submissions/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/rotate%20image)|Medium|几何技巧等价|
 |53|[Maximum subarray](https://leetcode.com/problems/maximum-subarray/description/)| [C++](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/maximum%20subarray)|Easy|DP|
 |54|[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/spiral%20matrix)|Medium|找规律，四角控制，边界判断|
 |66|[Plus One](https://leetcode.com/problems/plus-one/submissions/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Plus%20one)|Easy|倒叙，特殊情况注意别越界|
