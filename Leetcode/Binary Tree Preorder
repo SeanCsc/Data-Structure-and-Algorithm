@@ -1,0 +1,26 @@
+栈的典型应用-暂时不用的先存下来。
+注意边界条件。
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        Stack<TreeNode> s = new Stack<TreeNode>();
+        List<Integer> res = new LinkedList<Integer>();
+        if(root == null)  return res;
+        s.push(root);
+        while(!s.empty()){
+            TreeNode top = s.pop();
+            res.add(top.val);
+            if(top.right!=null) s.push(top.right);
+            if(top.left!=null) s.push(top.left);
+        }
+        return res;
+    }
+}
