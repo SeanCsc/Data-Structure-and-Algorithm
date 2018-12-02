@@ -1,0 +1,54 @@
+找到下一个permutation.
+更像一个找规律的题。
+三步曲：
+<1> 从后往前找到第一个下降的数。说明存在空间，找不到就整体倒置。
+<2> 从后往前找到第一个比该数大的数，进行交换。
+<3> 将后段倒置（变成递增），也就是最小。
+
+任何一个复杂问题都可以拆解成一个一个小问题，一块一块进行解决。
+class Solution {
+    public void reverse(int[] nums, int s, int e){
+        while(s<e){
+            swap(nums,s,e);
+            s++;
+            e--;
+        }
+        return;
+    }
+    public void swap(int[] nums, int s, int e){
+        int tmp = nums[s];
+        nums[s] = nums[e];
+        nums[e] = tmp;
+        return;
+    }
+    
+    
+    public void nextPermutation(int[] nums) {
+        if(nums.length == 0) return;
+        //find the first reduce number
+        int firstSmall = -1;
+        for(int i = nums.length-1; i>=1; i--){
+            if(nums[i-1] < nums[i]){
+                firstSmall = i-1;
+                break;
+            }
+        }
+        if(firstSmall == -1){
+            reverse(nums,0,nums.length-1);
+            return;
+        }
+        //find the first number that is larger than the first small number
+        int firstLarge = nums.length-1;
+        for(int i = nums.length-1; i > firstSmall; i--){
+            if(nums[i] > nums[firstSmall]){
+                firstLarge = i;
+                break;
+            }
+        }
+        //swap
+        swap(nums,firstSmall,firstLarge);
+        //reverse the other parts
+        reverse(nums,firstSmall+1,nums.length-1);
+        return;
+    }
+}
