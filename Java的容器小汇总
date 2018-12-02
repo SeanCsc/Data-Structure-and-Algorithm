@@ -1,0 +1,12 @@
+1.List
+ArrayList: 底层是array,读取快，插删比较慢。
+LinkedList:底层是双向链表，所以插删比较快。数据量比较小的时候使用arraylist就行
+Vector:底层是数组，相比arrayList来说，其线程安全。
+
+2.Set
+HashSet:无序，唯一
+TreeSet:有序，唯一
+
+3.Map
+HashMap:基于哈希表的Map实现
+HashTable
