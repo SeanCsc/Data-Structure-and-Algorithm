@@ -1,0 +1,23 @@
+常规的数字取每位字符的方法。
+要注意的几个地方：
+1.容器里必须要放object类型，不能放int,float这种。
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        if(x<0) return false;
+        if(x==0) return true;
+        ArrayList<Integer> l = new ArrayList<Integer>(); //容器里必须要放object类型
+        while(x>0){
+            l.add(x%10);
+            x = x/10;
+        }
+        int left = 0;
+        int right = l.size()-1;
+        while(left<right){
+            if(l.get(left)!=l.get(right)) return false;
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
