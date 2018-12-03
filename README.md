@@ -45,6 +45,7 @@ Include common my implementation of data structures, algorithm, leetcode and lin
 |326|[Power of Three](https://leetcode.com/problems/power-of-three/submissions/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Power%20of%20threen)|Easy|循环取余|
 |299|[Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/description/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Bulls%20and%20Cows)|Medium|hash table|
 |504|[base 7](https://leetcode.com/problems/base-7/submissions/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/base7)|Easy|while(%/)||
+|538|[Convert BST to Greater Tree](https://leetcode.com/problems/convert-bst-to-greater-tree/)| [Python](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Convert%20BST%20to%20Greater%20Tree)|Easy|递归+全局变量储存和||
 |692|[Degree of An Array](https://leetcode.com/problems/degree-of-an-array/description/)| [C++](https://github.com/SeanCsc/leetcode-algorithm-data-structure/blob/master/Leetcode/Degree%20of%20an%20array)|Easy|hash table|
 |697|[Top k Frequent Words](https://leetcode.com/problems/top-k-frequent-words/description/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/TopKFrequent)|Easy|hash table,priorityQueue|
 |784|[Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation/description/)| [Java](https://github.com/SeanCsc/Data-Structure-and-Algorithm/blob/master/Leetcode/Letter%20Case%20Permutation)|Easy|DFS|
