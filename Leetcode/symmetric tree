@@ -29,7 +29,7 @@ class Solution(object):
         
 
 
-Java:
+c++:
 类似same tree,加进来一个辅助函数
 /**
  * Definition for a binary tree node.
