@@ -4,7 +4,7 @@ Data structures and Algorithms
 ========
 Include common my implementation of data structures, algorithm, leetcode and lintcode problems
 
-包括原题目，自己的解法，其它人的更好的解法，可以改进的地方和思想学习。
+包括原题目->自己的解法->其它人的更好的解法->可以改进的地方和思想学习。
 
 ### LeetCode Algorithm
 
