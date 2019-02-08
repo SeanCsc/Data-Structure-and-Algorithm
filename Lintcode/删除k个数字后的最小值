@@ -1,0 +1,49 @@
+给定一个由非负数字组成的字符串，删除k个数字后得到最小的数字。
+
+主要解决以下几个问题：
+1. 每一次该遵循什么原则选择要删除的数字
+
+高位肯定是重要的，所以从高位上依次往后选，如果出现了这一位比下一位大的情况的时候，去掉这一位肯定就是最好的选择了。
+
+
+
+2. 如何把新的数字拼接起来
+
+把去除单个数字封装成一个函数，每次调用自动拼接，时间复杂度O(kn)
+
+利用栈的临时存储性质，说白了，如果下一个准备入栈的数字比栈顶元素小，那个这个栈顶数字就可以被清除了。
+
+知识点：
+1.
+"".join()
+用于将序列中的元素以指定的字符连接生成一个新的字符串
+
+2.
+数组[] 有append和pop两种方法，可以用来实现stack
+
+3.
+在最后的转化中，虽然用join可以直接把数字拼完，但是应该用int转换一下来避免首位是0
+
+class Solution(object):
+    def removeKdigits(self, num, k):
+        """
+        :type num: str
+        :type k: int
+        :rtype: str
+        """
+        stack = []
+        if(len(num) == k):
+            return '0'
+        for n in num:
+            while stack and k and int(stack[-1]) > int(n):
+                stack.pop()
+                k = k -1
+            stack.append(n)
+        while(k>0):
+            stack.pop()
+            k = k-1
+        if not stack:
+            return '0'
+        return str(int("".join(stack)))
+        
+        
