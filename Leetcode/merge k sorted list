@@ -1,0 +1,46 @@
+merge k sorted lists
+
+之前已经做过merge 2 sorted lists,只需要merge sort的一部分即可。
+
+但是如果要合并k个sorted list.一个思路是依次进行merge sort，但是每一次merge都要产生很多不必要的比较。
+
+此时会想到top-k的思路- **去冗余** ，就像topk一样，我们只需要找到candidates再比较。这里也是一样的。
+
+所以那，我们只需要把所有元素都放到一起，然后生成堆，依次把堆顶元素pop出来就好啦。
+
+所以我们可以使用python heapify即可生成堆(注意先要导入，ListNode()生成链表，heappop()即可得到堆顶元素并弹出。
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+from heapq import heappop, heapify
+
+class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        holder = []
+        for l in lists:
+            while(l):
+                holder.append(l.val)
+                l = l.next
+        if not holder:
+            return None
+        
+        heapify(holder)
+        
+        root = ListNode(heappop(holder))
+        cur = root
+        
+        while holder:
+            root.next = ListNode(heappop(holder))
+            root = root.next
+        
+        return cur
+                
+                
+        
